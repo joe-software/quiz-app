@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components'
 import Navbar from './Navbar';
+import Quizpage from './Quizpage';
 
 
 function Maincomponent(props) {
@@ -19,9 +20,9 @@ function Maincomponent(props) {
             </div>
         :
         <p onClick={toggleNavDisplay}><span class="material-symbols-outlined closed-menu-link">menu</span></p>
+        }
 
-}
-        <div>Placeholder</div>                   
+        <Quizpage />                  
       </Container>
   );
 }
@@ -30,6 +31,12 @@ function Maincomponent(props) {
 const Container = styled.div`
 display: flex;
 font-family: 'Montserrat', sans-serif;
+
+background: rgb(223,219,216);
+background-image: url("/images/quiz_mainbgr.png"); 
+background-size: cover;
+
+height: 100vh;
 
 .navbar{
     width: 20%;   
@@ -44,6 +51,7 @@ font-family: 'Montserrat', sans-serif;
     background: #f5efeb;
     border-radius: 20px;
     border: 5px solid #565c5e;
+    position: absolute;
 }
 
 `

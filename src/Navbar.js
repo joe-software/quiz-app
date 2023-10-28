@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components'
 
 
+
 function Navbar(props) {
     let display = props.toggleNavDisplay
      
@@ -25,7 +26,8 @@ padding: 15px 10px;
 height: 100vh;
 
 background: rgb(223,219,216);
-background: linear-gradient(90deg, rgba(223,219,216,1) 15%, rgba(223,219,216,1) 33%, rgba(194,189,185,1) 84%, rgba(173,169,166,1) 96%); 
+background-image: url("/images/quiz_navbgr.png"); 
+border-right: 5px solid #565c5e;
 
 .list-cont{
     display: flex;
