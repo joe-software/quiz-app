@@ -9,7 +9,7 @@ function Navbar(props) {
   return (
       <Container >
         <div className='nav-header-cont' >
-            <p><span  class="material-symbols-outlined">quiz</span></p>
+        
             <p onClick={props.toggleNavDisplay}><span class="material-symbols-outlined menu-link">menu_open</span></p>
         </div>
         <div className='list-cont'>
@@ -38,6 +38,8 @@ border-right: 5px solid #565c5e;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    p{
+    }
 }
 
 p{
@@ -59,7 +61,31 @@ span{
     border-radius: 20px;
     border: 5px solid #565c5e;
 }
+@media only screen and (max-width: 650px) {
+    position: absolute;
+    margin: 0;
+    padding: 10px;
+    border-right: 3px solid #565c5e;
 
+
+    p{
+        font-size: 020px;
+        margin: 0px;
+    }
+    .menu-link{
+        margin: 5px 0px;
+        font-size: 35px;
+        border-radius: 10px;
+        border: 3px solid #565c5e;
+    }  
+    .list-cont{
+        margin-top: 20px;
+        p{
+            margin: 10px 0px;
+        }
+    } 
+  
+}
 
 
 `

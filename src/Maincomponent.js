@@ -53,6 +53,20 @@ height: 100vh;
     border: 5px solid #565c5e;
     position: absolute;
 }
+@media only screen and (max-width: 650px) {
+    .closed-menu-link{
+        margin: 15px 10px;
+        font-size: 35px;
+        border-radius: 10px;
+        border: 3px solid #565c5e;
+    }
+    .navbar{
+        width: 60%;
+        position: absolute;
+    }
+   
+  
+}
 
 `
 
