@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
+import background from './images/quiz_navbgr.png'
 
 
 
@@ -26,7 +27,7 @@ padding: 15px 10px;
 height: 100vh;
 
 background: rgb(223,219,216);
-background-image: url("/images/quiz_navbgr.png"); 
+background-image: url(${background}); 
 border-right: 5px solid #565c5e;
 
 .list-cont{

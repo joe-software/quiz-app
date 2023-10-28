@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components'
 import Navbar from './Navbar';
 import Quizpage from './Quizpage';
+import background from './images/quiz_mainbgr.png'
 
 
 function Maincomponent(props) {
@@ -33,7 +34,7 @@ display: flex;
 font-family: 'Montserrat', sans-serif;
 
 background: rgb(223,219,216);
-background-image: url("/images/quiz_mainbgr.png"); 
+background-image: url(${background}); 
 background-size: cover;
 
 height: 100vh;
