@@ -1,12 +1,11 @@
 import './App.css';
+import Maincomponent from './Maincomponent';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          Test: running!
-        </p>
+        <Maincomponent />
       </header>
     </div>
   );
