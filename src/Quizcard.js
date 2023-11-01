@@ -2,24 +2,44 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 
-function Quizcomp(props) {
-    let[quizPage, setQuizPage] = useState(0)
+function Quizcard(props) {
 
   return (
       <Container>
-        <div className='header-cont'>
-        <span class="material-symbols-outlined">school</span>
-    <h1>Quiz Time!</h1>
-    <span class="material-symbols-outlined">school</span>
-    </div>
-    {quizPage == 0 ?
-    <>
-    <p>Click Start to begin the quiz, you can exit at any time by clicking restart, but if you do you will lose all progress!</p>   
-    <p className='start-button'>Start</p> 
-    </>
-    :
-    <p>test</p>
-}             
+        <p>{props.questions['question']}</p>
+
+        <div className='question-cont'>
+        <input type="radio" name="questionselect" onChange={props.handleCheck} value="1"></input>  
+        <label>
+            {props.questions['1']}
+        </label>
+        </div>
+
+        <div className='question-cont'>
+        <input type="radio" name="questionselect" onChange={props.handleCheck} value="2" ></input> 
+        <label> 
+            {props.questions['2']}
+        </label>
+        </div>
+
+        <div className='question-cont'>
+        <input type="radio" name="questionselect" onChange={props.handleCheck} value="3" ></input>  
+        <label>
+            {props.questions['3']}
+        </label>
+        </div>
+
+        <div className='question-cont'>
+        <input type="radio" name="questionselect" onChange={props.handleCheck} value="4" ></input>  
+        <label>
+            {props.questions['4']}
+        </label>
+        </div>
+
+        <div className='nav-cont'>
+        <p className="nav-p" onClick={props.resetPage}>Exit</p> 
+            <p className="nav-p" onClick={props.nextPage}>Submit</p>  
+        </div>
       </Container>
   );
 }
@@ -32,14 +52,7 @@ flex-direction: column;
 align-items: center;
 color:#565c5e;
 font-weight: bold;
-h1{
-    font-size: 50px;
-    margin-top: 30px;
-    background: #f5efeb;
-    border-radius: 20px;
-    border: 5px solid #565c5e;
-    padding: 20px;
-}
+
 p{
     font-size: 20px;
     margin-top: 30px;
@@ -51,22 +64,35 @@ p{
     text-align: center;
 
 }
-span{
-    font-size: 70px;
-    margin: 0 10px;
-    display: block;
-    margin-top: 5%;
-}
-.start-button{
-    cursor: pointer;
-    font-size: 30px;
-}
-.header-cont{
-    display: flex;
+
+.question-cont{
+    display:flex;
+    justify-content: flex-start;
     align-items: center;
+    margin: 10px 0px;
+  
 }
+input{
+    padding: 0;
+    margin: 0;
+    margin: 0 20px;
+}
+label{
+    font-size: 20px;
+}
+.nav-cont{
+    width: 50%;
+    display: flex;
+}
+.nav-p{
+    margin: 0 20px;
+    font-size: 15px;
+    padding: 10px;
+    margin-top: 30px;
+}
+
 `
 
 
 
-export default Quizcomp;
+export default Quizcard;

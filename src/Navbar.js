@@ -28,6 +28,8 @@ height: 100vh;
 
 background: rgb(223,219,216);
 background-image: url(${background}); 
+background-size: cover;
+background-size: 100% 100%;
 border-right: 5px solid #565c5e;
 
 .list-cont{

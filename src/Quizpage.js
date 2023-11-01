@@ -1,9 +1,69 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-
+import Quizcard from './Quizcard';
 
 function Quizpage(props) {
+    let [username, setUsername] = useState("")
+    function changeUsername(e){
+        setUsername(e.target.value)
+    }
     let[quizPage, setQuizPage] = useState(0)
+    function nextPage(){
+        setQuizPage(quizPage + 1)
+    }
+    function resetPage(){
+        setQuizPage(0)
+    }
+
+    let [checkState, setCheckState] = useState({0: "", 1: "", 2: "", 3: ""})
+    function handleCheck(e){
+        let page = quizPage
+        setCheckState({...checkState, [quizPage]: e.target.value})
+        console.log(checkState)
+    }
+
+let questions = [
+    {'question': 'Which is the most commonly used port for HTTPS?', '1': '456', '2': '443', '3': '871', '4': '746'},
+    {'question': 'Which is the most commonly used port for SSH/Secure Shell?', '1': '19', '2': '443', '3': '22', '4': '25'},
+    {'question': 'Which is the most commonly used port for Telnet?', '1': '23', '2': '35', '3': '32', '4': '15'},
+    {'question': 'Which is the most commonly used port for HTTP?', '1': '23', '2': '81', '3': '75', '4': '80'},
+    {'question': 'Which is the most commonly used port for SMB?', '1': '443', '2': '445', '3': '450', '4': '322'},
+    {'question': 'Which is the most commonly used port for DNS?', '1': '50', '2': '53', '3': '40', '4': '60'},
+    {'question': 'Which is the most commonly used port for IMAP?', '1': '150', '2': '140', '3': '143', '4': '301'},
+    {'question': 'Which is the most commonly used port for RDP?', '1': '3399', '2': '3389', '3': '3333', '4': '3800'}
+]
+let [score, setScore] = useState(0)
+useEffect(() => {
+    let counter = 0
+    if(checkState[1] == "2"){
+        counter ++
+    }
+    if(checkState[2] == "3"){
+        counter ++
+    }
+    if(checkState[3] == "1"){
+        counter ++
+    }
+    if(checkState[4] == "4"){
+        counter ++
+    }
+    if(checkState[5] == "2"){
+        counter ++
+    }
+    if(checkState[6] == "2"){
+        counter ++
+    }
+    if(checkState[7] == "3"){
+        counter ++
+    }
+    if(checkState[8] == "2"){
+        counter ++
+    }
+    setScore((100/8) * counter)
+   
+}, [checkState])
+
+
 
   return (
       <Container>
@@ -12,20 +72,38 @@ function Quizpage(props) {
             <h1>Quiz Time!</h1>
             <span class="material-symbols-outlined">school</span>
         </div>
-        {quizPage == 0 ?
+
+        {quizPage < 1 &&
         <>
             <p>Click Start to begin the quiz, you can exit at any time by clicking restart, but if you do you will lose all progress!
         <br></br> 
         <br></br> 
             The username you enter will be displayed on the leaderboards - so choose carefully!</p>  
             <div className='start-cont'>
-                <input type="text" placeholder="Enter a username here..."></input> 
-                <h2 className='start-button'>Start</h2> 
+                <input type="text" placeholder="Enter a username here..." onChange={changeUsername} value={username}></input> 
+                <h2 className='start-button' onClick={nextPage}>Start</h2> 
             </div>
         </>
-    :
-    <p>test</p>
-}             
+        }  
+
+        {(quizPage > 0 && quizPage < 9) &&
+    <Quizcard quizPage={quizPage} nextPage={nextPage} handleCheck={handleCheck} questions={questions[quizPage-1]} resetPage={resetPage}/> }     
+
+        {(quizPage == 9) &&
+        <>
+            <p>End Of Quiz!</p>
+            <p>{username} - your score was... {score}</p>
+            <div className='start-cont'>
+                <h2 className='start-button' onClick={resetPage}>Reset</h2> 
+            </div>
+            
+        </>
+    
+    
+    }  
+
+
+
       </Container>
   );
 }
