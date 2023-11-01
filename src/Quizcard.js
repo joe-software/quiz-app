@@ -70,12 +70,13 @@ p{
     justify-content: flex-start;
     align-items: center;
     margin: 10px 0px;
+    width: 25%;
   
 }
 input{
-    padding: 0;
-    margin: 0;
     margin: 0 20px;
+    width: 1.15em;
+    height: 1.15em;
 }
 label{
     font-size: 20px;
